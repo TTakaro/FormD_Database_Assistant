@@ -22,7 +22,9 @@ if __name__ == "__main__":
 
     analyzer = FormDAnalyzer(db_path, api_key)
 
-    query = "What were the most frequently used federal exemptions?"
+    # query = What were the most frequently used federal exemptions?"
+    # query = "What are the most prevalent industry sectors represented?"
+    query = "Where are offerings originating from geographically? How has this changed over time?"
     response = analyzer.process_query(query)
     print(response)
 
