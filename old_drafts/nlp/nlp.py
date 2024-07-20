@@ -32,3 +32,12 @@ class NLP:
                 {"role": "user", "content": query}
             ])
         return response.choices[0].message.content.strip()
+
+    def sql_to_query(self, sql_output):
+        response = client.chat.completions.create(model="gpt-3.5-turbo-16k",
+            messages=[
+                {"role": "system",
+               "content": sys_prompt.format(form_d=form_d_prompt)},
+              {"role": "user", "content": sql_output}
+                ])
+        return response.choices[0].message.content.strip()

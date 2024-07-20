@@ -1,5 +1,5 @@
-from db.database import Database
-from nlp.nlp import NLP, api_key
+from old_drafts.db.database import Database
+from old_drafts.nlp import NLP, api_key
 
 
 class FormDAnalyzer:
