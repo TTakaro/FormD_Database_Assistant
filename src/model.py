@@ -13,10 +13,11 @@ from prompts import system_message
 # Load API Key
 load_dotenv()
 api_key = getenv("API_KEY")
+model_name = getenv("MODEL")
 
 
 # Model setup
-model = ChatOpenAI(openai_api_key=api_key)
+model = ChatOpenAI(openai_api_key=api_key, model=model_name)
 
 # Add database and tools to interact with sql databases
 db = SQLDatabase.from_uri("sqlite:///../data/form_d_database.db")
