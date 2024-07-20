@@ -13,17 +13,16 @@
     pip install -r requirements.txt
     ```
 
-3. Set up your OpenAI API key in your bash rc.
+3. Set up your OpenAI API key in the .env file.
 ```bash
 API_KEY=##################
-EXPORT API_KEY
 ```
 
 ## Usage
 
-1. Run the main script with a natural language query:
+1. Run the streamlit frontend script:
     ```bash
-    python main.py
+    streamlit run main.py
     ```
 
 2. Example output:

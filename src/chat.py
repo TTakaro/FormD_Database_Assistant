@@ -8,8 +8,8 @@ class ChatApp:
         # Assigns model to app
         self.model = model
         # Streamlit setup
-        st.set_page_config(page_title="Chat Prototype")
-        st.title("Chat Prototype")
+        st.set_page_config(page_title="Database Assistant")
+        st.title("Database Assistant")
         self.reset()
 
     def reset(self) -> None:
