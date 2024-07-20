@@ -26,6 +26,5 @@ API_KEY=##################
     ```
 
 2. Example output:
-    ```
-    [('exemption1', 50), ('exemption2', 30)]
-    ```
+<img width="737" alt="Screen Shot 2024-07-20 at 4 37 55 PM" src="https://github.com/user-attachments/assets/68b6e68d-c45e-482d-aaa7-e03e4692d979">
+
