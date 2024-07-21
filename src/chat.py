@@ -9,7 +9,7 @@ class ChatApp:
         self.model = model
         # Streamlit setup
         st.set_page_config(page_title="Database Assistant")
-        st.title("Database Assistant")
+        st.title("SEC Form D Database Assistant")
         self.reset()
 
     def reset(self) -> None:
@@ -38,6 +38,7 @@ class ChatApp:
 
         # Assumes streamlit user avatar "assistant"
         with st.chat_message("assistant"):
+            tool_use = False
             for step in response:
                 # Extracts message info
                 key = next(iter(step))
@@ -45,22 +46,26 @@ class ChatApp:
                 # Fixes an annoyance with rendering $ without triggering latex
                 content = msg.content.replace("$", "\\$")
 
-                # Avoids interacting with non-AIMessage type calls
-                if type(msg) == AIMessage:
-                    # If theres a toolcall, create a dropdown for the tool message
-                    if msg.tool_calls:
-                        # Writes message in dropdown
-                        name = msg.tool_calls[0]["name"]
-                        query = msg.tool_calls[0]["args"]
-                        with st.status(f'**{name}**: {query}', state="complete"):
+                if key == "agent":
+                    # Avoids interacting with non-AIMessage type calls
+                    if type(msg) == AIMessage:
+                        # If there's a toolcall, create a dropdown for the tool message
+                        if msg.tool_calls:
+                            # Writes message in dropdown
+                            name = msg.tool_calls[0]["name"]
+                            query = msg.tool_calls[0]["args"]
+                        else:
                             st.write(content)
-                            # Saves message to streamlit history
-                            st.session_state["messages"].append(
-                                {"role": "assistant", "content": content})
-                    # Otherwise, display in main body
-                    else:
+                            st.session_state["messages"].append({"role": "assistant", "content": content})
+                if key == "tools":
+                    #with st.status(f'**{name}**: {query}', state="complete"):
+                    with st.status(f'**Tool Call - {name}**: {query}', state="complete"):
+                        # Writes the text to inside of dropdown
+                        st.write("**Tool Response:**\n")
                         st.write(content)
-                        st.session_state["messages"].append({"role": "assistant", "content": content})
+                        # Saves message to streamlit history
+                        st.session_state["messages"].append(
+                            {"role": "assistant", "content": content})
 
 
     def run(self) -> None:

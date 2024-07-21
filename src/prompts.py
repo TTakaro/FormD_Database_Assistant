@@ -15,8 +15,10 @@ DO NOT make any DML statements (INSERT, UPDATE, DELETE, DROP etc.) to the databa
 
 To start you should ALWAYS look at the tables in the database to see what you can query.
 Do NOT skip this step.
-Then you should query the schema of the most relevant tables."""
+Then you should query the schema of the most relevant tables.
+"""
 #CONTEXT:
 #Here is a description of the database: {form_d}
 
+#system_message = SystemMessage(content=sql_sys_prompt.format(form_d=form_d_prompt))
 system_message = SystemMessage(content=sql_sys_prompt)
