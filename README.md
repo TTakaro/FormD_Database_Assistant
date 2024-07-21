@@ -26,5 +26,6 @@ API_KEY=##################
     ```
 
 2. Example output:
-<img width="737" alt="Screen Shot 2024-07-20 at 4 37 55 PM" src="https://github.com/user-attachments/assets/68b6e68d-c45e-482d-aaa7-e03e4692d979">
+<img width="727" alt="Screen Shot 2024-07-21 at 3 14 10 PM" src="https://github.com/user-attachments/assets/8e878792-ba34-44be-8298-ae7f7909a38b">
+
 
