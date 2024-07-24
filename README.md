@@ -1,4 +1,4 @@
-# primeAssessment: Form D Analyzer
+# Form D Analyzer
 
 ## Setup
 
